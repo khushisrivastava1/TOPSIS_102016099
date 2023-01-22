@@ -93,5 +93,12 @@ def topsis(inputFile,weight,impact,outputFile):
     data['Topsis Score']=df['score']
     data['Rank'] = data['Topsis Score'].rank(ascending = 0)
     data['Rank']=data['Rank'].astype(np.int32)
-
     data.to_csv(outputFile,index=None)
+
+if __name__ == "__main__":
+    file=sys.argv[1]
+    weight=sys.argv[2]
+    impact=sys.argv[3]
+    outPutFile=sys.argv[4]
+
+    topsis(file,weight,impact,outPutFile)
